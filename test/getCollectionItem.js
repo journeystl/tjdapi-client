@@ -1,11 +1,14 @@
 var tjdapi = require('../index')
   , nock = require('nock')
   , should = require('should')
-  , mocks = require('./mocks');
+  , mocks = require('./mocks')
+  , dotenv = require('dotenv');
+
+dotenv.load();
 
 describe('tjdapi.getCollectionItem()', function() {
   var api
-    , apiUrl = 'http://127.0.0.1:8081'
+    , apiUrl = process.env.TJDAPI_URL || 'http://foo.bar'
     , request;
 
   beforeEach(function(done) {

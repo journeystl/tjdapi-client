@@ -8,7 +8,7 @@ dotenv.load();
 
 describe('tjdapi.getCollection()', function() {
   var api
-    , apiUrl = process.env.TJDAPI_URL
+    , apiUrl = process.env.TJDAPI_URL || 'http://foo.bar'
     , request;
 
   beforeEach(function(done) {
