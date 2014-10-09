@@ -1,0 +1,22 @@
+{
+  "name": "tjdapi",
+  "version": "0.0.0",
+  "description": "Wrapper for calls to The Journey's data api.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eric C. Brown",
+  "license": "MIT",
+  "dependencies": {
+    "extend": "^2.0.0",
+    "request": "^2.45.0"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.4",
+    "nock": "^0.48.0",
+    "should": "^4.0.4",
+    "supertest": "^0.14.0",
+    "dotenv": "^0.4.0",
+  }
+}
