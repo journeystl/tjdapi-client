@@ -1,5 +1,5 @@
 {
-  "name": "tjdapi",
+  "name": "tjdapi-client",
   "version": "0.0.1",
   "description": "Wrapper for calls to The Journey's data api.",
   "repository": {
