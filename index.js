@@ -89,4 +89,22 @@ tjdapi.prototype.getCollectionItem = function(collection, id, options, cb) {
   }, cb);
 }
 
+tjdapi.prototype.postCollectionItem = function(collection, object, cb) {
+  var self = this;
+
+  self.baseRequest.post({
+    url: self.apiUrl + collection,
+    json: object,
+  }, cb);
+}
+
+tjdapi.prototype.putCollectionItem = function(collection, id, object, cb) {
+  var self = this;
+
+  self.baseRequest.put({
+    url: self.apiUrl + collection + '/' + id,
+    json: object,
+  }, cb);
+}
+
 module.exports = tjdapi;
