@@ -57,6 +57,22 @@ describe('tjdapi', function() {
     });
   });
 
+  describe('deleteCollectionItem', function() {
+    it('should delete a collection item', function(done) {
+      var test_id = '5429bf6208bf4cd821823128';
+
+      request
+        .delete('/_test/' + test_id)
+        .reply(200, mocks.collectionItem.del);
+
+      api.deleteCollectionItem('_test', test_id, function(err, response, body) {
+        (err === null).should.be.true;
+        body.should.equal('okay');
+        done();
+      });
+    });
+  });
+
   describe('putCollectionItemExternal', function() {
     it('should put a collection item by external source', function(done) {
       var test_id = '5429bf6208bf4cd821823128'
@@ -72,6 +88,22 @@ describe('tjdapi', function() {
       api.putCollectionItemExternal('_test', 'test', test_id, object, function(err, response, body) {
         (err === null).should.be.true;
         body.should.have.property('foo', 'bar');
+        done();
+      });
+    });
+  });
+
+  describe('deleteCollectionItemExternal', function() {
+    it('should delete a collection item by external source', function(done) {
+      var test_id = '5429bf6208bf4cd821823128';
+
+      request
+        .delete('/_test/_external/test/' + test_id)
+        .reply(200, mocks.collectionItem.del);
+
+      api.deleteCollectionItemExternal('_test', 'test', test_id, function(err, response, body) {
+        (err === null).should.be.true;
+        body.should.equal('okay');
         done();
       });
     });

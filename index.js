@@ -107,12 +107,28 @@ tjdapi.prototype.putCollectionItem = function(collection, id, object, cb) {
   }, cb);
 }
 
+tjdapi.prototype.deleteCollectionItem = function(collection, id, cb) {
+  var self = this;
+
+  self.baseRequest.del({
+    url: self.apiUrl + collection + '/' + id,
+  }, cb);
+}
+
 tjdapi.prototype.putCollectionItemExternal = function(collection, source, id, object, cb) {
   var self = this;
 
   self.baseRequest.put({
     url: self.apiUrl + collection + '/_external/' + source + '/'+ id,
     json: object,
+  }, cb);
+}
+
+tjdapi.prototype.deleteCollectionItemExternal = function(collection, source, id, cb) {
+  var self = this;
+
+  self.baseRequest.del({
+    url: self.apiUrl + collection + '/_external/' + source + '/'+ id,
   }, cb);
 }
 
