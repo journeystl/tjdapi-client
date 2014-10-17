@@ -115,6 +115,14 @@ tjdapi.prototype.deleteCollectionItem = function(collection, id, cb) {
   }, cb);
 }
 
+tjdapi.prototype.getCollectionItemExternal = function(collection, source, id, cb) {
+  var self = this;
+
+  self.baseRequest.get({
+    url: self.apiUrl + collection + '/_external/' + source + '/'+ id,
+  }, cb);
+}
+
 tjdapi.prototype.putCollectionItemExternal = function(collection, source, id, object, cb) {
   var self = this;
 

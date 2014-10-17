@@ -73,6 +73,26 @@ describe('tjdapi', function() {
     });
   });
 
+  describe('getCollectionItemExternal', function() {
+    it('should get a collection item by external source', function(done) {
+      var test_id = '5429bf6208bf4cd821823128'
+        , object = {
+          foo: 'bar',
+          _id: '5429bf6208bf4cd821823128',
+        };
+
+      request
+        .get('/_test/_external/test/' + test_id)
+        .reply(200, mocks.collectionItem.get);
+
+      api.getCollectionItemExternal('_test', 'test', test_id, function(err, response, body) {
+        (err === null).should.be.true;
+        body.should.have.property('label', 'Tower Grove');
+        done();
+      });
+    });
+  });
+
   describe('putCollectionItemExternal', function() {
     it('should put a collection item by external source', function(done) {
       var test_id = '5429bf6208bf4cd821823128'
