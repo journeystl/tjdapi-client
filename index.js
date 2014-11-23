@@ -48,9 +48,10 @@ tjdapi.prototype.getCollection = function(collection, options, cb, results) {
   var defaults = {
     query: options.query || {},
     fields: options.fields || {},
-    limit: options.limit || null,
+    limit: options.limit || 50,
     offset: options.offset || 0,
     sort: options.sort || {},
+    aggregate: options.aggregate || {},
   }
   self.baseRequest.get({
     url: self.apiUrl + collection,
