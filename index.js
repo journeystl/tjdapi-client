@@ -51,6 +51,7 @@ tjdapi.prototype.getCollection = function(collection, options, cb, results) {
     limit: options.limit || 50,
     offset: options.offset || 0,
     sort: options.sort || {},
+    populate: options.populate || {},
     aggregate: options.aggregate || {},
   }
   self.baseRequest.get({
