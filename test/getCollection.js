@@ -21,7 +21,7 @@ describe('tjdapi.getCollection()', function() {
 
   it('should return empty result set.', function(done) {
     request
-      .get('/church?limit=&offset=0')
+      .get('/church?limit=50&offset=0')
       .reply(200, mocks.getCollectionChurch.empty);
 
     api.getCollection('church', function(err, response, body) {
