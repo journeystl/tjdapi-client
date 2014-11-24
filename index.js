@@ -46,14 +46,26 @@ tjdapi.prototype.getCollection = function(collection, options, cb, results) {
   }
 
   var defaults = {
-    query: options.query || {},
-    fields: options.fields || {},
+    query: options.query || null,
+    fields: options.fields || null,
     limit: options.limit || 50,
     offset: options.offset || 0,
-    sort: options.sort || {},
-    populate: options.populate || {},
-    aggregate: options.aggregate || {},
+    sort: options.sort || null,
+    populate: options.populate || null,
+    aggregate: options.aggregate || null,
   }
+
+  for(var x in defaults) {
+    var opt = defaults[x];
+    if(opt === null) {
+      delete defaults[x];
+      continue;
+    }
+    if(typeof opt === 'object') {
+      defaults[x] = JSON.stringify(opt);
+    }
+  }
+
   self.baseRequest.get({
     url: self.apiUrl + collection,
     qs: defaults,
